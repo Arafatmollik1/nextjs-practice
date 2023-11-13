@@ -1,35 +1,22 @@
 "use client"
 import { useState , useEffect } from "react"; 
 import TourInput from "./TourInput";
-import ShowTableForAllTours from "./ShowTableForAllTours";
 function RevealDiv() {
   const [isActive, setIsActive] = useState(false);
   const [tourName, setTourName] = useState('');
 
 
-  const [tours, setTours] = useState([]);
-
-  useEffect(() => {
-    fetch('/api/get-all-tour-names')
-      .then(response => response.json())
-      .then(data => {
-        setTours(data.result.rows);
-        console.log(tours);
-      });
-  }, []);
-  console.log(tours);
-
   const handleSubmit = async () => {
     const response = await fetch(`/api/save-tour-name?name=${tourName}`);
 
     if (response.ok) {
-      console.log('Tour name saved successfully');
+      window.location.reload(); // Reload the page
     } else {
       console.error('Error saving tour name');
     }
   };
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10 my-10">
       {isActive && <TourInput tourName={tourName} setTourName={setTourName}/>}
       <div className="flex flex-col gap-5">
         <button 
@@ -45,8 +32,6 @@ function RevealDiv() {
           </button>
         }
       </div>
-      <ShowTableForAllTours tours={tours} setTours={setTours}/>
-      
 
     </div>
   )
