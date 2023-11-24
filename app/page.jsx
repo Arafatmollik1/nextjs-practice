@@ -1,7 +1,7 @@
 import RevealDiv from "@/components/RevealDiv";
 import ShowTableForAllTours from "@/components/ShowTableForAllTours";
 const getAllTourNames = async () => {
-  const data = await fetch(`${process.env.VERCEL_URL}/get-all-tour-names` , { cache: 'no-store' });
+  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/get-all-tour-names` , { cache: 'no-store' });
   return data.json();
 };
 export default async function Home() {
