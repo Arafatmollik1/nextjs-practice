@@ -1,6 +1,7 @@
 "use client"
 import { useState , useEffect } from "react"; 
 import TourInput from "./TourInput";
+import {Button} from "@chakra-ui/react"
 function RevealDiv() {
   const [isActive, setIsActive] = useState(false);
   const [tourName, setTourName] = useState('');
@@ -19,17 +20,17 @@ function RevealDiv() {
     <div className="flex flex-col gap-10 my-10">
       {isActive && <TourInput tourName={tourName} setTourName={setTourName}/>}
       <div className="flex flex-col gap-5">
-        <button 
+        <Button colorScheme='gray' variant='outline' 
           onClick= {isActive ? handleSubmit : () => setIsActive(true)} 
           className="p-2 border-2 rounded-lg border-white"> 
           {isActive ? 'Submit' : 'Click to add name' }
-        </button>
+        </Button>
         {isActive &&
-          <button 
+          <Button variant='link' 
             onClick={() => setIsActive(false)} 
             className="p-2 bg-white text-black border-2 rounded-lg border-white"> 
             Clear
-          </button>
+          </Button>
         }
       </div>
 

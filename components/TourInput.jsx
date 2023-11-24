@@ -1,8 +1,9 @@
+import {Input} from "@chakra-ui/react"
 function TourInput({ tourName, setTourName }) {
 
   return (
     <div>
-      <input 
+      <Input placeholder='medium size' size='md'
         type="text" 
         name="name_of_the_tour" 
         className="text-black rounded p-2 min-w-full"
