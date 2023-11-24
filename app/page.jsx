@@ -1,8 +1,12 @@
 import RevealDiv from "@/components/RevealDiv";
 import ShowTableForAllTours from "@/components/ShowTableForAllTours";
 const getAllTourNames = async () => {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/get-all-tour-names` , { cache: 'no-store' });
-  return data.json();
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/get-all-tour-names` , { cache: 'no-store' });
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  } else {
+    return response.json();
+  }
 };
 export default async function Home() {
   const result = await getAllTourNames();
