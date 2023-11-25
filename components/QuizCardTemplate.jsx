@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import { Card, CardBody, CardFooter, Image, Stack, Heading, Text, Divider,ButtonGroup, Button, Checkbox, CheckboxGroup } from '@chakra-ui/react'
+import { Input, Card, CardBody, CardFooter, Image, Stack, Heading, Text, Divider,ButtonGroup, Button, Checkbox, CheckboxGroup } from '@chakra-ui/react'
 
 const QuizCardTemplate = ({ q_image, q_headline, q_text, q_options   }) => {
   return (
@@ -26,15 +26,15 @@ const QuizCardTemplate = ({ q_image, q_headline, q_text, q_options   }) => {
             </CheckboxGroup>
             </Stack>
         </CardBody>
-        <Divider />
+        <Input className="mx-5" placeholder='Enter your email' width='300px'/>
         <CardFooter>
             <ButtonGroup spacing='2'>
             <Button variant='solid' colorScheme='blue'>
                 Submit
             </Button>
-            <Button variant='ghost' colorScheme='blue'>
+{/*             <Button variant='ghost' colorScheme='blue'>
                 Cancel
-            </Button>
+            </Button> */}
             </ButtonGroup>
         </CardFooter>
     </Card>

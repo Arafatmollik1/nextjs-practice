@@ -1,8 +1,8 @@
 import React from 'react'
 import QuizCardTemplate from "@/components/QuizCardTemplate"
 
-const getGameInfo = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/get-quizz-info?id=101` , { cache: 'no-store' });
+const getGameInfo = async (id) => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/get-quizz-info?id=${id}` , { cache: 'no-store' });
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   } else {
@@ -10,12 +10,12 @@ const getGameInfo = async () => {
   }
 };
 
-export default async function page() {
-    const result = await getGameInfo();
+export default async function page({params}) {
+    const result = await getGameInfo(params.gameid);
     const info = result.result.rows;
   
     return (
-      <main className="flex min-h-screen flex-col items-center  p-24">
+      <main className="flex min-h-screen flex-col justify-center items-center">
         
         {info.map((item, index) => (
           <div key={index}>
