@@ -1,10 +1,16 @@
 "use client"
 import React from 'react'
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, extendTheme } from '@chakra-ui/react'
+const config = {
+    initialColorMode: 'system',
+    useSystemColorMode: true,
+}
+  
+const theme = extendTheme({ config })
 
 function Chakra({ children}) {
     return (
-        <ChakraProvider>{children}</ChakraProvider>
+        <ChakraProvider theme={theme}>{children}</ChakraProvider>
     )
 }
 

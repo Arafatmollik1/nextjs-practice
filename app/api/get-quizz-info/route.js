@@ -7,7 +7,7 @@ export async function GET(request) {
     const Game_id = searchParams.get('id');
   try {
       if (!Game_id) throw new Error('Game id required');
-      result = await sql`SELECT Game_id
+      result = await sql`SELECT
       Quizz_headline,
       Quizz_text,
       All_extra,
