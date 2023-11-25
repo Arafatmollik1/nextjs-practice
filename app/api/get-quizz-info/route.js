@@ -1,15 +1,19 @@
 import { sql } from '@vercel/postgres';
 import { NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
- 
 export async function GET(request) {
-  const { searchParams } = new URL(request.url);
-  const GameID = searchParams.get('id');
- 
+    var result = '';
+    const { searchParams } = new URL(request.url);
+    const Game_id = searchParams.get('id');
   try {
-    if (!GameID) throw new Error('GameID required');
-    result = await sql`SELECT Quizz_picture, Quizz_headline, Quizz_text, Quizz_options FROM quizzes;`;
-  }  catch (error) {
+      if (!Game_id) throw new Error('Game id required');
+      result = await sql`SELECT Game_id
+      Quizz_headline,
+      Quizz_text,
+      All_extra,
+      Quizz_options,
+      Quizz_picture FROM quizzes WHERE Game_id=${Game_id};`;
+  } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }
  
