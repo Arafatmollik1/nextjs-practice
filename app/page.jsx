@@ -1,7 +1,7 @@
 import RevealDiv from "@/components/RevealDiv";
 import ShowTableForAllTours from "@/components/ShowTableForAllTours";
 const getAllTourNames = async () => {
-  const response = await fetch('http://localhost:3000/api/get-all-tour-names' , { cache: 'no-store' });
+  const response = await fetch('https://nextjs-practice-flax-six.vercel.app/api/get-all-tour-names' , { cache: 'no-store' });
   let result = await response.json();
   return result;
 };
