@@ -1,5 +1,7 @@
 import RevealDiv from "@/components/RevealDiv";
 import ShowTableForAllTours from "@/components/ShowTableForAllTours";
+export const dynamic = 'force-dynamic';
+export const revalidate = 0
 const getAllTourNames = async () => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/get-all-tour-names` , { cache: 'no-store' });
   if (!response.ok) {
