@@ -19,7 +19,7 @@ export default async function page({params}) {
         
         {info.map((item, index) => (
           <div key={index}>
-            <QuizCardTemplate q_image={`/assets/${item.quizz_picture}`} q_headline={item.quizz_headline} q_text={item.quizz_text} q_options={item.quizz_options} />
+            <QuizCardTemplate q_image={`/assets/${item.quizz_picture}`} q_headline={item.quizz_headline} q_text={item.quizz_text} q_options={item.quizz_options} q_gameId={params.gameid} />
           </div>
         ))}
 
