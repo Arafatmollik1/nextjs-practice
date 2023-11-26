@@ -1,8 +1,9 @@
 "use client"
 import React from 'react'
-import { Input, Card, CardBody, CardFooter, Image, Stack, Heading, Text, Divider,ButtonGroup, Button, Checkbox, CheckboxGroup } from '@chakra-ui/react'
+import { Radio, RadioGroup , Input, Card, CardBody, CardFooter, Image, Stack, Heading, Text,ButtonGroup, Button } from '@chakra-ui/react'
 
 const QuizCardTemplate = ({ q_image, q_headline, q_text, q_options   }) => {
+    const [value, setValue] = React.useState('value1')
   return (
     <Card maxW='sm'>
         <CardBody>
@@ -12,18 +13,18 @@ const QuizCardTemplate = ({ q_image, q_headline, q_text, q_options   }) => {
             borderRadius='lg'
             />
             <Stack mt='6' spacing='3'>
-            <Heading size='md'>{q_headline}</Heading>
-            <Text>
-                {q_text}
-            </Text>
-            <CheckboxGroup colorScheme='green'>
-                <Stack direction={['column']}>
-                    <Checkbox value='value1'>{q_options.option1}</Checkbox>
-                    <Checkbox value='value2'>{q_options.option2}</Checkbox>
-                    <Checkbox value='value3'>{q_options.option3}</Checkbox>
-                    <Checkbox value='value4'>{q_options.option4}</Checkbox>
-                </Stack>
-            </CheckboxGroup>
+                <Heading size='md'>{q_headline}</Heading>
+                <Text>
+                    {q_text}
+                </Text>
+                <RadioGroup onChange={setValue} value={value}>
+                    <Stack direction='column'>
+                        <Radio value='value1' variant="checkbox">{q_options.option1}</Radio>
+                        <Radio value='value2' >{q_options.option2}</Radio>
+                        <Radio value='value3' >{q_options.option3}</Radio>
+                        <Radio value='value4' >{q_options.option4}</Radio>
+                    </Stack>
+                </RadioGroup>
             </Stack>
         </CardBody>
         <Input className="mx-5" placeholder='Enter your email' width='300px'/>
@@ -32,9 +33,6 @@ const QuizCardTemplate = ({ q_image, q_headline, q_text, q_options   }) => {
             <Button variant='solid' colorScheme='blue'>
                 Submit
             </Button>
-{/*             <Button variant='ghost' colorScheme='blue'>
-                Cancel
-            </Button> */}
             </ButtonGroup>
         </CardFooter>
     </Card>
