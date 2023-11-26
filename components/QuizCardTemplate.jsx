@@ -51,23 +51,23 @@ const QuizCardTemplate = ({ q_image, q_headline, q_text, q_options, q_gameId }) 
           </RadioGroup>
         </Stack>
       </CardBody>
-      <Input className="mx-5" placeholder='Enter your email' width='300px' value={email} onChange={(e) => setEmail(e.target.value)} />
+      <Input className="mx-5" placeholder='আপনার ইমেইল' width='300px' value={email} onChange={(e) => setEmail(e.target.value)} />
       <CardFooter className="flex flex-col">
         {status == 200  && status !== null && (
           <Alert className="my-2" status='success'>
             <AlertIcon />
-            Data uploaded to the server. Fire on!
+            অংশগ্রহণ করার জন্য ধন্যবাদ
           </Alert>
         )}
         {status !== 200 && status !== null && (
           <Alert className="my-2" status='error'>
             <AlertIcon />
-            There was an error processing your request
+            দুঃখিত কিছু ভুল হয়েছে
           </Alert>
         )}
         <ButtonGroup spacing='2'>
           <Button variant='solid' colorScheme='blue' onClick={handleSubmit} isLoading={isLoading} loadingText="Submitting">
-            Submit
+            উত্তর পাঠান
           </Button>
         </ButtonGroup>
       </CardFooter>
