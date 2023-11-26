@@ -6,9 +6,6 @@ export async function POST(request) {
   const { gameID, quizzAnswer, participantEmail } = await request.json();
 
   // Validate gameID and participantEmail
-  if (!Number.isInteger(gameID)) {
-    return NextResponse.json({ error: 'gameID must be an integer' }, { status: 400 });
-  }
   if (!/^\S+@\S+\.\S+$/.test(participantEmail)) {
     return NextResponse.json({ error: 'participantEmail must be a valid email' }, { status: 400 });
   }
