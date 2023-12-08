@@ -65,11 +65,13 @@ const QuizCardTemplate = ({ q_image, q_headline, q_text, q_options, q_gameId }) 
             দুঃখিত কিছু ভুল হয়েছে
           </Alert>
         )}
-        <ButtonGroup spacing='2'>
-          <Button variant='solid' colorScheme='blue' onClick={handleSubmit} isLoading={isLoading} loadingText="Submitting">
-            উত্তর পাঠান
-          </Button>
-        </ButtonGroup>
+        {(status === null || status !== 200) && (
+          <ButtonGroup spacing='2'>
+            <Button variant='solid' colorScheme='blue' onClick={handleSubmit} isLoading={isLoading} loadingText="Submitting">
+              উত্তর পাঠান
+            </Button>
+          </ButtonGroup>
+        )}
       </CardFooter>
     </Card>
   );
