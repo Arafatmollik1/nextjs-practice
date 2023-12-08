@@ -33,7 +33,7 @@ const QuizCardTemplate = ({ q_image, q_headline, q_text, q_options, q_gameId }) 
       <CardBody>
         <Image
           src={q_image}
-          alt='Green double couch with wooden legs'
+          alt='Picture could not be loaded'
           borderRadius='lg'
         />
         <Stack mt='6' spacing='3'>
@@ -51,7 +51,7 @@ const QuizCardTemplate = ({ q_image, q_headline, q_text, q_options, q_gameId }) 
           </RadioGroup>
         </Stack>
       </CardBody>
-      <Input className="mx-5" placeholder='আপনার ইমেইল' width='300px' value={email} onChange={(e) => setEmail(e.target.value)} />
+      <Input className="mx-5" placeholder='আপনার ফোন নম্বর' width='300px' value={email} onChange={(e) => setEmail(e.target.value)} />
       <CardFooter className="flex flex-col">
         {status == 200  && status !== null && (
           <Alert className="my-2" status='success'>
