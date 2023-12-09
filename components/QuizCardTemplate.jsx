@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Alert, AlertIcon, Radio, RadioGroup, Input, Card, CardBody, CardFooter, Image, Stack, Heading, Text, ButtonGroup, Button } from '@chakra-ui/react';
 
 const QuizCardTemplate = ({ q_image, q_headline, q_text, q_options, q_gameId }) => {
-  const [value, setValue] = useState('value1');
+  const [value, setValue] = useState('');
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState(null);
